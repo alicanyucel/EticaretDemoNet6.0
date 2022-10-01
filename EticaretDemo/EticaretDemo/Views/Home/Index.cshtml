@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form action="/Home/Login" method="post">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Mail Adresi</label>
+    <input type="email" name="Email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group mt-2">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" name="password" class="form-control" id="pwd" placeholder="Password">
+  </div>
+ <p>@TempData["hata"]</p>
+  <button type="submit" class="btn btn-primary mt-2">Gonder</button>
+</form>
