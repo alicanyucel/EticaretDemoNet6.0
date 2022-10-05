@@ -3,8 +3,8 @@
     public class Urun
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public decimal UnitPrice { get; set; }
-        public string Image { get; set; }
+        public string Adi { get; set; }
+        public decimal BirimFiyat { get; set; }
+        public string Resim { get; set; }
     }
 }

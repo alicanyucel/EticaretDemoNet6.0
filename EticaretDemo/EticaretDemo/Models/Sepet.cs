@@ -3,9 +3,9 @@
     public class Sepet
     {
         public int Id { get; set; }
-        public int Piece { get; set; }
-        public decimal UnitPrice { get; set; }
-        public decimal Total { get; set; }
-        public string Name { get; set; }
+        public int Adet { get; set; }
+        public decimal BirimFiyat { get; set; }
+        public decimal Toplam { get; set; }
+        public string Adi { get; set; }
     }
 }
