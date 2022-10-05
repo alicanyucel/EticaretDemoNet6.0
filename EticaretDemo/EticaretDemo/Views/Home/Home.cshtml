@@ -1,5 +1,77 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-}
+<style>
+    img{
+        width:100%;
+        height:100%;
+    }
+</style>
+<div class="row">
+    <div class="col-md-8">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group text-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQePvU87yBdmBP49FvsvUmcoP-Xv3f2b841hQ&usqp=CAU" alt="resim yok" />
+
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary mt-2">Sepete ekle</button>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="form-group text-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXx_TE_VNelX5FcdTi7UJyxy8mzzXVd6yXIg&usqp=CAU" alt="resim yok" />
+
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block mt-2">sepete ekle</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ürün Adı</th>
+                        <th>Adet</th>
+                        <th>Birim Fiyatı</th>
+                        <th>Toplam tutar</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Domates</td>
+                        <td>3</td>
+                        <td>0.12 kuruş</td>
+                        <td>0,36 kuruş</td>
+                        <td>
+                            <button class="btn btn-danger mt-2">Sil</button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>patates</td>
+                        <td>3</td>
+                        <td>0.15 kuruş</td>
+                        <td>0,45 kuruş</td>
+                        <td>
+                            <button class="btn btn-danger">Sil</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr />
+            <label class="form-control mt-2">Toplam Tutar</label>
+            <button class="btn btn-warning mt-2">ödeme yap</button>
+        </div>
+    </div>
+
+
+
