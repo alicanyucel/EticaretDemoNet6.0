@@ -38,19 +38,35 @@ namespace EticaretDemo.Controllers
             return View(list);  
         }
         [HttpPost]
-        public IActionResult SepeteEkle(int id)
+        public IActionResult SepeteEkle(int id,int adet)
         {
             Urun urun = con.Urunler.Where(p => p.Id == id).FirstOrDefault();
             Sepet sepet = new Sepet();
             sepet.Adi = urun.Adi;
-            sepet.Adet = 1;
+            sepet.Adet = adet;
             sepet.BirimFiyat = urun.BirimFiyat;
             sepet.Toplam = sepet.Adet * sepet.BirimFiyat;
             con.Sepet.Add(sepet);
             con.SaveChanges();
             return RedirectToAction("Home","Home");
         }
-
-       
+        public IActionResult SepettekiUrunuSil(int id)
+        {
+            Sepet sepet = con.Sepet.Where(p =>p.Id==id).FirstOrDefault();
+            con.Sepet.Remove(sepet);
+            con.SaveChanges();
+            return RedirectToAction("Home","Home");
+        }
+     public IActionResult OdemeYap()
+        {
+            var result = con.Sepet.ToList();
+            foreach (var item in result)
+            {
+                con.Sepet.Remove(item);
+                con.SaveChanges();
+            }
+            TempData["odeme"] = "ödeme yapildi";
+            return RedirectToAction("Home","Home");
+        }
     }
 }

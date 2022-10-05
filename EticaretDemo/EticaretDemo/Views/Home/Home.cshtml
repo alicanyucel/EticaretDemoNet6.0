@@ -1,6 +1,7 @@
 ﻿@using EticaretDemo.Dtos;
 @model HomeDto;
 @{
+    string odeme = "";
     var urunler = TempData["urunler"];
     int id = 0;
     decimal toplam = 0;
@@ -28,6 +29,7 @@
                     </div>
                     <h3 class="text-primary" style="font-weight:400;">@item.Adi</h3>
                     <h3 class="text-danger" style="font-weight:400;">@item.BirimFiyat.ToString()tl</h3>
+                    <input class="form-control" type="number" name="adet"  value="1"/>
                     <div class="form-group text-center mt-2">
                         <button type="submit" class="btn btn-primary btn-block">Sepete ekle</button>
                     </div>
@@ -61,7 +63,10 @@
                         <td>@item.BirimFiyat.ToString("#,##0.00")</td>
                         <td>@item.Toplam.ToString("#,##0.00")</td>
                         <td>
-                            <button class="btn btn-danger mt-2">Sil</button>
+                            <form action="/Home/SepettekiUrunuSil" method="post">
+                              <input hidden="hidden" name="id" value="@item.Id">
+                            <button type="submit" class="btn btn-danger mt-2">Sil</button>
+                            </form>
                         </td>
 
                     </tr>
@@ -70,7 +75,11 @@
         </table>
         <hr />
         <label class="form-control">Toplam Tutar= @toplam.ToString("#,##0.00")</label>
+        <p>@TempData["odeme"]</p>
+        <form action="OdemeYap" method="post">
+
         <button class="btn btn-warning mt-2">ödeme yap</button>
+        </form>
     </div>
 </div>
 
