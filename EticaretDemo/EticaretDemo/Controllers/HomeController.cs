@@ -37,6 +37,19 @@ namespace EticaretDemo.Controllers
             list.Sepetim = sepetim;
             return View(list);  
         }
+        [HttpPost]
+        public IActionResult SepeteEkle(int id)
+        {
+            Urun urun = con.Urunler.Where(p => p.Id == id).FirstOrDefault();
+            Sepet sepet = new Sepet();
+            sepet.Adi = urun.Adi;
+            sepet.Adet = 1;
+            sepet.BirimFiyat = urun.BirimFiyat;
+            sepet.Toplam = sepet.Adet * sepet.BirimFiyat;
+            con.Sepet.Add(sepet);
+            con.SaveChanges();
+            return RedirectToAction("Home","Home");
+        }
 
        
     }

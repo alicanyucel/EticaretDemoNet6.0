@@ -3,6 +3,11 @@
 @{
     var urunler = TempData["urunler"];
     int id = 0;
+    decimal toplam = 0;
+    foreach (var item in Model.Sepetim)
+    {
+        toplam = toplam + item.Toplam;
+    }
 }
 <style>
     img {
@@ -15,16 +20,19 @@
         <div class="row">
             @foreach (var item in Model.Urunlerim)
             {
-                <div class="col-md-5 mx-2">
+                <form action="/Home/SepeteEkle" method="post">
+                <div class="col-md-4">
+                    <input hidden="hidden" name="Id" value="@item.Id">
                     <div class="form-group text-center">
                         <img src="@item.Resim" alt="Resim yok" />
                     </div>
                     <h3 class="text-primary" style="font-weight:400;">@item.Adi</h3>
                     <h3 class="text-danger" style="font-weight:400;">@item.BirimFiyat.ToString()tl</h3>
                     <div class="form-group text-center mt-2">
-                        <button class="btn btn-primary btn-block">Sepete ekle</button>
+                        <button type="submit" class="btn btn-primary btn-block">Sepete ekle</button>
                     </div>
                 </div>
+                </form>
             }
         </div>
     </div>
@@ -45,7 +53,8 @@
                    
                     @foreach (var item in Model.Sepetim)
                     {
-                    <tr>
+                        id++;
+                        <tr>
                         <td>@item.Id</td>
                         <td>@item.Adi</td>
                         <td>@item.Adet</td>
@@ -60,7 +69,7 @@
             </tbody>
         </table>
         <hr />
-        <label class="form-control">Toplam Tutar</label>
+        <label class="form-control">Toplam Tutar= @toplam.ToString("#,##0.00")</label>
         <button class="btn btn-warning mt-2">ödeme yap</button>
     </div>
 </div>
